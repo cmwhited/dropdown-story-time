@@ -1,18 +1,47 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <main>
+    <section>
+      <h1>Super simple, pure JS & CSS Dropdown with some vue for a framework</h1>
+      <p>To run story book: <code>yarn storybook</code></p>
+      <Dropdown v-bind:items="items" v-on:selected="dropdownItemSelected" />
+    </section>
+  </main>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Dropdown from './components/Dropdown';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
-  }
+    Dropdown,
+  },
+  data() {
+    return {
+      items: [
+        {
+          id: 'item-1',
+          title: 'Item 1',
+          to: '/item-1',
+        },
+        {
+          id: 'item-2',
+          title: 'Item 2',
+          to: '/item-1',
+        },
+        {
+          id: 'item-3',
+          title: 'Item 4',
+          to: '/item-1',
+        },
+      ],
+    };
+  },
+  methods: {
+    dropdownItemSelected(item) {
+      console.log('selected item', item);
+    },
+  },
 };
 </script>
 
